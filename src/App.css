@@ -1,0 +1,59 @@
+/* Menu */
+
+.menu{
+    width: 100%;
+    height: 50px;
+    background-color: navy;
+    color: aliceblue;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* Home and Bookshelf */
+.bookshelf{
+    padding-top: 20px;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: lightblue ;
+    justify-content: center;
+}
+
+.bookHolder{
+    max-width: 280px;
+    height: fit-content;
+    background-color: aliceblue;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    padding-bottom: 10px;
+
+}
+
+.imgHolder img{
+    max-width: 280px;
+    max-height: 395px;
+}
+
+.book-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:5px;
+}
+.book-info p {
+    font-size: 25px;
+    font-weight: bold;
+}
+.book-info span {
+    font-size: 20px;
+    color:rgb(100, 100, 223);
+}
+
+.books-button{
+    background-color: navy;
+    color: aliceblue;
+    border-radius: 5px;
+}

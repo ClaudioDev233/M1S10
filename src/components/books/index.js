@@ -17,19 +17,23 @@ export default function Books(){
     },[])
 
     return <>
+    <div className="bookshelf">
         {book.map(books => {
             return <>
             <div className="bookHolder">
             <div className="imgHolder">
                 <img src={books.image}/>
             </div>
-            <h1>{books.title}</h1>
+            <div className="book-info">
+            <p>{books.title}</p>
             <span>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(books.price)}</span>
-            <button>Comprar</button>
-             <button>Detalhes</button>
+            <button className="books-button">Comprar</button>
+            <button className="books-button">Detalhes</button>
+             </div>
              </div>
             </>
         })}
+        </div>
         </>
    
  

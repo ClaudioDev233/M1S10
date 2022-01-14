@@ -1,3 +1,8 @@
+import Books from "../../books";
+
 export default function Home(){
-    return <p>Home</p>
+    return <div className="home-container">
+        <Books></Books>
+        
+    </div>
 }
