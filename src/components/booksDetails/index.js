@@ -23,9 +23,9 @@ export default function BookDetails(){
         <img src={bookData.image}/>
         </div>
         <div className="details__content">
-            <h2 className="details__name">Nome</h2>
-            <h3 className="details__price"> Preço </h3>
-            <p className="details__description">blablabla</p>
+            <h2 className="details__name">{bookData.title}</h2>
+            <h3 className="details__price"> <span>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(bookData.price)}</span> </h3>
+            <p className="details__description">{bookData.description}</p>
             <button className="details__button">Adicionar</button>
         </div>
     </div>
