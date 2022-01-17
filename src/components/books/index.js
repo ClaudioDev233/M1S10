@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 
 
@@ -28,7 +29,11 @@ export default function Books(){
             <p>{books.title}</p>
             <span>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(books.price)}</span>
             <button className="books-button">Comprar</button>
-            <button className="books-button">Detalhes</button>
+            <Link 
+            to={`./details/${books.id}`}
+            >
+                <button className="books-button">Detalhes</button>
+            </Link>
              </div>
              </div>
             </>
