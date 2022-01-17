@@ -14,16 +14,30 @@ import { createContext, useState } from 'react'
 export const CartContext = createContext([]);
 
 export function CartProvider({children}){
+   
+    const [cart, setCart] = useState([]);
 
-    const [cart, setCart] = useState([])
-    setCart(console.log("Oie"))
-    return <>
-    <CartContext.Provider value={{  
-        cart: cart
+
+    function handleAddBook(book){
+
+        alert("Livro Adicionado")
+        setCart([... cart, book])
+        /* console.log(cart) */
+
     }
-    }
+    console.log(cart.length)
+
+    const coiso = "oi"
+
+    return (
+    <CartContext.Provider 
+    value={{
+        cart: cart.length,
+        coiso: coiso,
+        addBook : handleAddBook
+    }}
     >
         {children}
     </CartContext.Provider>
-    </>
+    )
 }
