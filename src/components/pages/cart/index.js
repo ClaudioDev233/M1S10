@@ -4,14 +4,14 @@ import {CartContext} from "../../../context/cartContext"
 
 export default function Cart(){
 
-    const {cart} = useContext(CartContext)
+    const {cart , removeBook} = useContext(CartContext)
     
     const cartPrice = cart.map(valor => valor.price)
     
-    return <> 
-        <p>{cartPrice.reduce((total,atual) => {
-            return total+atual
-        })}</p>
+    return <> <span>
+        { cartPrice.length >= 1 ? cartPrice.reduce((valor, valor2) => valor + valor2 ) : ''}
+    </span>
+       
     <table>
     <tr>
             <th>#</th>
@@ -25,9 +25,11 @@ export default function Cart(){
             <td><img src={items.image}></img></td>
             <td>{items.title}</td>
             <td>{items.price}</td>
-            <td><button>Remover</button></td>
+            <td><button
+            onClick={()=>{removeBook(items.id)}}
+            >Remover</button></td>
         </tr>
     )})}
     </table>
     </>
-}
+}    

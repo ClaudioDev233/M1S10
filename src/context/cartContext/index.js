@@ -26,14 +26,23 @@ export function CartProvider({children}){
     }
     console.log(cart.length)
 
-    const coiso = "oi"
+    function handleRemoveBook(id){
+        const bookFiltered = cart.filter( item => {
+          if(item.id === id) {
+            return false //remove do carrinho
+          } else {
+            return true //continua no carrinho
+          }
+        })
+        setCart(bookFiltered)
+    }
 
     return (
     <CartContext.Provider 
     value={{
         cart: cart,
-        coiso: coiso,
-        addBook : handleAddBook
+        addBook : handleAddBook,
+        removeBook: handleRemoveBook
     }}
     >
         {children}
