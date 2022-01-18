@@ -1,19 +1,23 @@
 import {useContext,useState,useEffect} from "react"
 import {CartContext} from "../../context/cartContext"
 import { Link } from "react-router-dom"
+import { ContainerMenu, MenuDiv, Menus } from "./styles"
 
 
 export default function Menu(){
     
     const {cart} = useContext(CartContext)
     
-    return <nav className="menu">
+    return  <Menus>
        <Link to={"/"}>
         <h1>Code Store</h1> 
        </Link>
+            <MenuDiv>
+            <p>Produtos no carrinho :</p>
             <Link to={"./cart"}>
             <span>{cart.length}</span> 
             </Link>
-            <p>Produtos no carrinho</p>
-        </nav>
+            </MenuDiv>
+            </Menus>
+           
 }
