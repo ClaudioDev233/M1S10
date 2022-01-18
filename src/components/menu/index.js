@@ -1,7 +1,7 @@
 import {useContext,useState,useEffect} from "react"
 import {CartContext} from "../../context/cartContext"
 import { Link } from "react-router-dom"
-import { ContainerMenu, MenuDiv, Menus } from "./styles"
+import { MenuDiv, Menus } from "./styles"
 
 
 export default function Menu(){

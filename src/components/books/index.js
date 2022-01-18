@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react"
 import { Link } from "react-router-dom"
 import { CartContext } from "../../context/cartContext"
+import { Bookshelf, BookHolder, ImgHolder, BookInfo, BooksButton } from "./styles"
 
 
 export default function Books(){
@@ -20,27 +21,25 @@ export default function Books(){
     },[])
 
     return <>
-    <div className="bookshelf">
+    <Bookshelf>
         {book.map(books => {
             return <>
-            <div className="bookHolder">
-            <div className="imgHolder">
-                <img src={books.image}/>
-            </div>
-            <div className="book-info">
+            <BookHolder>
+                <ImgHolder src={books.image}/>
+            <BookInfo>
             <p>{books.title}</p>
             <span>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(books.price)}</span>
-            <button className="books-button" onClick={() => addBook(books)}>Comprar</button>
+            <BooksButton onClick={() => addBook(books)}>Comprar</BooksButton>
             <Link 
             to={`./details/${books.id}`}
             >
-                <button className="books-button">Detalhes</button>
+                <BooksButton>Detalhes</BooksButton>
             </Link>
-             </div>
-             </div>
+             </BookInfo>
+             </BookHolder>
             </>
         })}
-        </div>
+        </Bookshelf>
         </>
    
  

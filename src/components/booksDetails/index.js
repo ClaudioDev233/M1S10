@@ -1,11 +1,15 @@
 import { useParams } from "react-router"
-import { useState, useEffect} from "react"
+import { useState, useEffect, useContext} from "react"
+import { CartContext } from "../../context/cartContext"
+import { Details__Container, Deitails__Content, Container } from "./styles"
+
 export default function BookDetails(){
 
     const [bookData, setBookData] = useState([])
 
     const params = useParams()
      
+    const { addBook } = useContext(CartContext)
 
     useEffect(() =>{
         const handleDetails = async () => {
@@ -15,19 +19,21 @@ export default function BookDetails(){
             setBookData(data)
         }
         handleDetails()
-    }, [params.id])
+    }, [])
     
     return <>
-    <div className="details__container">
+    <Container>
+    <Details__Container>
         <div className="details__image">
         <img src={bookData.image}/>
         </div>
-        <div className="details__content">
-            <h2 className="details__name">{bookData.title}</h2>
-            <h3 className="details__price"> <span>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(bookData.price)}</span> </h3>
-            <p className="details__description">{bookData.description}</p>
-            <button className="details__button">Adicionar</button>
-        </div>
-    </div>
+        <Deitails__Content>
+            <h2 >{bookData.title}</h2>
+            <h3> <span>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(bookData.price)}</span> </h3>
+            <p>{bookData.description}</p>
+            <button onClick={()=>{addBook(bookData)}}>Adicionar ao Carrinho</button>
+        </Deitails__Content>
+        </Details__Container>
+        </Container>
     </>
 }
