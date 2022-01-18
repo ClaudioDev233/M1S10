@@ -22,7 +22,6 @@ export function CartProvider({children}){
 
         alert("Livro Adicionado")
         setCart([... cart, book])
-        /* console.log(cart) */
 
     }
     console.log(cart.length)
@@ -32,7 +31,7 @@ export function CartProvider({children}){
     return (
     <CartContext.Provider 
     value={{
-        cart: cart.length,
+        cart: cart,
         coiso: coiso,
         addBook : handleAddBook
     }}

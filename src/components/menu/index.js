@@ -12,7 +12,7 @@ export default function Menu(){
         <h1>Code Store</h1> 
        </Link>
             <Link to={"./cart"}>
-            <span>{cart}</span> 
+            <span>{cart.length}</span> 
             </Link>
             <p>Produtos no carrinho</p>
         </nav>
