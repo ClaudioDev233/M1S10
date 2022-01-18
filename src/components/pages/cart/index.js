@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import {CartContext} from "../../../context/cartContext"
+import { Table, TableHead, TableRow } from "./styles"
 
 
 export default function Cart(){
@@ -12,24 +13,30 @@ export default function Cart(){
         { cartPrice.length >= 1 ? cartPrice.reduce((valor, valor2) => valor + valor2 ) : ''}
     </span>
        
-    <table>
-    <tr>
+    <Table>
+    <TableHead>
+        <tr>
             <th>#</th>
             <th>Produto</th>
             <th>Subtotal</th>
-            <th>Botão Remover</th>
+            <th>Remove</th>
         </tr>
+        </TableHead>
+        <tbody>
     {cart.map(items => {
         return (
-        <tr>
+        <TableRow>
             <td><img src={items.image}></img></td>
             <td>{items.title}</td>
             <td>{items.price}</td>
-            <td><button
+            <td>
+            <button
             onClick={()=>{removeBook(items.id)}}
-            >Remover</button></td>
-        </tr>
+            >Remover</button>
+            </td>
+        </TableRow>
     )})}
-    </table>
+    </tbody>
+    </Table>
     </>
 }    
